@@ -1,0 +1,120 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  float: center ;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+
+
+.col-25 {
+  float: left;
+  width: 25%;
+  margin-top: 6px;
+}
+
+.col-75 {
+  float: left;
+  width: 50%;
+  margin-top: 6px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .col-25, .col-75, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+</style>
+</head>
+<body>
+  <body background = "{{url_for( 'static', filename='icecream1.jpg')}}">
+
+<h1>Reviews please</h1>
+<p><h2>welcome to foodies , i hope you all enjoyed the taste<br> of food so can u please give me a review .</h2></p>
+
+<div class="container">
+  <form action="{{url_for('review2')}}" method="post">
+    <div class="row">
+      <div class="col-25">
+        <!-- <label for="fname"><h2> Name</h2></label> -->
+      </div>
+      <div class="col-75">
+        <input type="text" id="fname" name="Name" placeholder=" Name">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <!-- <label for="lname"><h2>email Id</h2></label> -->
+      </div>
+      <div class="col-75">
+        <input type="text" id="email" name="Email_Id" placeholder="Email ID">
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-25">
+          <!-- <label for="lname"><h2>Food Item</h2></label> -->
+        </div>
+        <div class="col-75">
+          <input type="text" id="food" name="foodItem" placeholder="Food item">
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-25">
+        <!-- <label for="subject"><h2>Reviews</h2></label> -->
+      </div>
+      <div class="col-75">
+        <textarea id="subject" name="review" placeholder="Write something about our food items.." style="height:200px"></textarea>
+      </div>
+    </div>
+    <br><br><br>
+    <div class="row">
+      <input style="background:#08dd5af1;color:#fff;font-size:100%;padding:10px;border:100px" type="submit" value="Submit">
+    
+    </div>
+  </form>
+  <a href="{{url_for('graph')}}">
+   <br><br><br> <button>Graph</button>
+  </a>
+
+  {{result}}
+</div>
+
+</body>
+</html>
